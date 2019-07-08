@@ -1,4 +1,11 @@
 language: objective-c
 osx_image: xcode10.2
-xcode_project: MakeProjectTest.xcodeproj #project 파일
-xcode_destination: platform=iOS Simulator,name=iPhone XS,OS=12.2
+
+env:
+  global:
+    - PROJECT="MakeProjectTest.xcodeproj"
+    - SDK="iphonesimulator12.2"
+    - DESTINATION="platform=iOS Simulator,name=iPhone XS,OS=12.2"
+  matrix:
+    - SCHEME="MakeProjectTest"
+
