@@ -1,12 +1,15 @@
 language: objective-c
 osx_image: xcode10.2
-sudo: false
+xcode_project: MakeProjectTest.xcodeproj # path to your xcodeproj folder
+xcode_scheme: MakeProjectTestTests
+xcode_destination: platform=iOS Simulator,OS=10.1,name=iPad Pro (9.7-inch)
+#sudo: false
 
-env:
-  global:
-    - PROJECT="MakeProjectTest.xcodeproj"
-    - SDK="iphonesimulator12.2"
-    - DESTINATION="platform=iOS Simulator,name=iPhone XS,OS=12.2"
-  matrix:
-    - SCHEME="MakeProjectTest"
+#env:
+#  global:
+#    - PROJECT="MakeProjectTest.xcodeproj"
+#    - SDK="iphonesimulator12.2"
+#    - DESTINATION="platform=iOS Simulator,name=iPhone XS,OS=12.2"
+#  matrix:
+#    - SCHEME="MakeProjectTest"
 
