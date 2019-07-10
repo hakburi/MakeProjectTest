@@ -1,7 +1,7 @@
 language: objective-c
 osx_image: xcode10.2
 xcode_project: MakeProjectTest.xcodeproj # path to your xcodeproj folder
-xcode_scheme: MakeProjectTestTests
+xcode_scheme: MakeProjectTest
 xcode_destination: platform=iOS Simulator,OS=10.1,name=iPad Pro (9.7-inch)
 #sudo: false
 
