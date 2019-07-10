@@ -13,3 +13,8 @@ xcode_destination: platform=iOS Simulator,OS=10.0,name=iPhone 6
 #  matrix:
 #    - SCHEME="MakeProjectTest"
 
+install:
+  brew install xcodegen
+
+script:
+  xcodegen generate
