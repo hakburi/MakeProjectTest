@@ -1,0 +1,20 @@
+language: objective-c
+osx_image: xcode10.2
+xcode_project: MakeProjectTest.xcodeproj # path to your xcodeproj folder
+xcode_scheme: MakeProjectTest
+xcode_destination: platform=iOS Simulator,OS=10.0,name=iPhone 6
+#sudo: false
+
+#env:
+#  global:
+#    - PROJECT="MakeProjectTest.xcodeproj"
+#    - SDK="iphonesimulator12.2"
+#    - DESTINATION="platform=iOS Simulator,name=iPhone XS,OS=12.2"
+#  matrix:
+#    - SCHEME="MakeProjectTest"
+
+install:
+  brew install xcodegen
+
+script:
+  xcodegen generate

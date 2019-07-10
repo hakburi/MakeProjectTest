@@ -1,0 +1,94 @@
+name: MakeProjectTest
+options:
+  bundleIdPrefix: com.genithlabs.ios
+  defaultConfig: Debug
+  createIntermediateGroups: true
+  settingPresets: none
+  tabWidth: 4
+  indentWidth: 4
+attributes:
+  CLASSPREFIX: GL
+  ORGANIZATIONNAME: GenithLabs Inc.
+# Make xcconfig setting (멀티 빌딩을 위한 configurations 생성) - 프로젝트 단위
+configs:
+  Debug: Debug
+  Release: Release    
+# Set xcconfig 파일 (xcconfig 파일은 미리 만들어 두어야 함) - 프로젝트 단위
+configFiles:
+  Debug: ConfigFiles/Project-Debug.xcconfig
+  Release: ConfigFiles/Project-Release.xcconfig
+fileGroups:
+  - ConfigFiles/Project-Shared.xcconfig
+  - ConfigFiles/MakeProjectTest-Shared.xcconfig
+  - ConfigFiles/MakeProjectTestTests-Shared.xcconfig
+  - ConfigFiles/MakeProjectTestUITests-Shared.xcconfig
+ # - HKitProjectForSwift/Supporting Files/HKitProjectForSwift-Info.plist
+ # - HKitProjectForSwiftTests/Supporting Files/HKitProjectForSwiftTests-Info.plist
+# schemes:
+#   HKitProjectForSwift:
+#     build:
+#       targets:
+#         HKitProjectForSwift: all
+#         HKitProjectForSwiftTests: [test]
+        # HKitProjectForSwiftTests: all
+      # preActions:
+      #   - script: |
+      #       cd ${SRCROOT} && git config core.hooksPath .githooks
+          # settingsTarget: HKitProjectForSwift
+    # run:
+    #   commandLineArguments:
+    #     "-noFIRAnalyticsDebugEnabled": true
+    #   environmentVariables:
+    #     XcodeColors: YES
+    #     OS_ACTIVITY_MODE: disable
+    # test:
+      # gatherCoverageData: true
+      # targets: [HKitProjectForSwiftTests]
+      # commandLineArguments:
+      #   "-noFIRAnalyticsDebugEnabled": true
+      # environmentVariables:
+      #   OS_ACTIVITY_MODE: disable
+      #   TEST: 1
+    # profile:
+    #   config: Debug
+targets:
+  MakeProjectTest:
+    type: application
+    platform: iOS
+    deploymentTarget: 10.0
+    sources:
+      - path: MakeProjectTest
+#        excludes:
+#          - Supporting Files/HKitProjectForSwift-Info.plist
+    # Set xcconfig 파일 (xcconfig 파일은 미리 만들어 두어야 함) - 타켓 단위
+    configFiles:
+      Debug: ConfigFiles/MakeProjectTest-Debug.xcconfig
+      Release: ConfigFiles/MakeProjectTest-Release.xcconfig
+  MakeProjectTestTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: MakeProjectTestTests
+#        excludes:
+#          - Supporting Files/HKitProjectForSwiftTests-Info.plist    
+    configFiles:
+      Debug: ConfigFiles/MakeProjectTestTests-Debug.xcconfig
+      Release: ConfigFiles/MakeProjectTestTests-Release.xcconfig
+    dependencies:
+      - sdk: Foundation.framework
+      - sdk: UIKit.framework
+      - target: MakeProjectTestTests      
+  MakeProjectTestUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: MakeProjectTestUITests
+#        excludes:
+#          - Supporting Files/HKitProjectForSwiftTests-Info.plist
+    configFiles:
+      Debug: ConfigFiles/MakeProjectTestUITests-Debug.xcconfig
+      Release: ConfigFiles/MakeProjectTestUITests-Release.xcconfig
+    dependencies:
+      - sdk: Foundation.framework
+      - sdk: UIKit.framework
+      - target: MakeProjectTestUITests
